@@ -1,8 +1,8 @@
 #' @title Rectified Linear Unit
 #' @description Activation functin based on a half-rectifier.
-#' @param inputs A matrix of size (1, n) (matrix)
+#' @param inputs An array
 #' @author Eduardo Kapp
-#' @returns A matrix of size (1, n) (matrix)
+#' @returns An array with the same size of the input array.
 relu <- function(inputs) {
   inputs[inputs <= 0] <- 0
   return(inputs)

@@ -12,9 +12,17 @@
 #' @param biases A bias array associated with each neuron. Note that
 #' the size of this array should be (size, 1), where size is the number
 #' of neurons. (matrix)
+#' @param activation What activation function should be used. Default: sigmoid
+#' (function)
 #' @author Eduardo Kapp
 #' @returns A network layer object represented as a list.
-create_layer <- function(size, n_inputs, weights, biases, activation = "sig") {
+create_layer <- function(
+  size,
+  n_inputs,
+  weights,
+  biases,
+  activation = sigmoid
+) {
   # Arg check
   if (!is.numeric(size))
     stop("'size' should be an integer")
@@ -39,7 +47,7 @@ create_layer <- function(size, n_inputs, weights, biases, activation = "sig") {
     n_inputs = n_inputs,
     weights = weights,
     biases = biases,
-    activation = kappnet::sigmoid
+    activation = activation
   )
   return(layer)
 }

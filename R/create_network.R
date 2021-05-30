@@ -13,6 +13,8 @@
 #' used for each layer. By default, sigmoid functions are used. (character)
 #' @author Eduardo Kapp
 #' @returns A network layer object represented as a list.
+#' @importFrom stats runif
+#' @export
 create_network <- function(
   input_size,
   n_layers = 1,
@@ -36,9 +38,9 @@ create_network <- function(
   # Define activation functions
   activations <- rapply(as.list(activations), function(x) {
     if (x == "relu")
-      return(kappnet::relu)
+      return(relu)
     else
-      return(kappnet::sigmoid)
+      return(sigmoid)
   })
 
   # Initialize network
@@ -62,13 +64,13 @@ create_network <- function(
     )
     # the weights matrix objects have dimensions (size, n_inputs)
     weights <- matrix(
-      data = 1,
+      data = runif(layer_sizes[layer] * layer_inputs, 0, 1),
       nrow = layer_sizes[layer],
       ncol = layer_inputs
     )
     # the biases matrix objects have dimensions (size, 1)
     biases <- matrix(
-      data = 1,
+      data = runif(layer_sizes[layer], 0, 1),
       nrow = layer_sizes[layer],
       ncol = 1
     )
