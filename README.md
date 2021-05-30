@@ -1,8 +1,17 @@
 # Overview
 This is my implementation of a neural network in R, structured as an 
 R package that gives you the power to create and train neural networks.
-It is mostly based around my core understand of what a neural network is and
+It is mostly based around my core understanding of what a neural network is and
 is a personal-project only (unless..?).
+
+The idea here is to implement a neural network structure with no external tools
+or packages, so one can actually understand what happens under the hood in a
+network or in its learning process.
+
+For the implementation, I used three sources as references:
+- Michael Nielsen's [http://neuralnetworksanddeeplearning.com/](Neural Networks and Deep Learning)
+- 3Blue1Brown's [https://www.youtube.com/watch?v=aircAruvnKk&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi](Neural Networks Series)
+- sentdex's [https://www.youtube.com/watch?v=Wo5dMEP_BbI&list=PLQVvvaa0QuDcjD5BAw2DxE6OF2tius3V3&ab_channel=sentdex](Neural Networks from Scratch in Python)
 
 # Features
 Currently, this package supports network creation, network training and
