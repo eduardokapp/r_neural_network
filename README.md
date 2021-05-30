@@ -9,9 +9,9 @@ or packages, so one can actually understand what happens under the hood in a
 network or in its learning process.
 
 For the implementation, I used three sources as references:
-- Michael Nielsen's [http://neuralnetworksanddeeplearning.com/](Neural Networks and Deep Learning)
-- 3Blue1Brown's [https://www.youtube.com/watch?v=aircAruvnKk&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi](Neural Networks Series)
-- sentdex's [https://www.youtube.com/watch?v=Wo5dMEP_BbI&list=PLQVvvaa0QuDcjD5BAw2DxE6OF2tius3V3&ab_channel=sentdex](Neural Networks from Scratch in Python)
+- Michael Nielsen's [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/)
+- 3Blue1Brown's [Neural Networks Series](https://www.youtube.com/watch?v=aircAruvnKk&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi)
+- sentdex's [Neural Networks from Scratch in Python](https://www.youtube.com/watch?v=Wo5dMEP_BbI&list=PLQVvvaa0QuDcjD5BAw2DxE6OF2tius3V3&ab_channel=sentdex)
 
 # Features
 Currently, this package supports network creation, network training and
