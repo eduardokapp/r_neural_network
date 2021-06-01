@@ -37,9 +37,9 @@ batch_update <- function(x, y, eta, network) {
   # Update every layer weights and biases with nabla_w and nabla_b
   for (layer in seq_len(network$n_layers)) {
     network$layers[[layer]]$weights <- network$layers[[layer]]$weights -
-      eta * nabla_w[[layer]]
+      (eta / ncol(x)) * nabla_w[[layer]]
     network$layers[[layer]]$biases <- network$layers[[layer]]$biases -
-      eta * nabla_b[[layer]]
+      (eta / ncol(x)) * nabla_b[[layer]]
   }
 
   return(network)

@@ -57,16 +57,32 @@ train_network <- function(
     # for every iteration, we need to shuffle data and select a few
     # batches according to batch_size
     shuffle_cols <- sample(ncol(train_x), ncol(train_x), replace = TRUE)
-    train_x <- train_x[, shuffle_cols]
-    train_y <- train_y[, shuffle_cols]
+    train_x <- matrix(
+      train_x[, shuffle_cols],
+      nrow = nrow(train_x),
+      ncol = ncol(train_x)
+    )
+    train_y <- matrix(
+      train_y[, shuffle_cols],
+      nrow = nrow(train_y),
+      ncol = ncol(train_y)
+    )
     batches <- seq(from = 1, to = ncol(train_x), by = batch_size)
     start <- 1
     end <- batch_size
     # Start adjustments process
     for (batch in batches) {
       # Determine batch indexes
-      batch_x <- train_x[, start:end]
-      batch_y <- train_y[, start:end]
+      batch_x <- matrix(
+        train_x[, start:end],
+        nrow = nrow(train_x),
+        ncol = batch_size
+      )
+      batch_y <- matrix(
+        train_y[, start:end],
+        nrow = nrow(train_y),
+        ncol = batch_size
+      )
 
       # Now perform backpropagation for this specific batch
       network <- batch_update(batch_x, batch_y, eta, network)
@@ -75,7 +91,7 @@ train_network <- function(
       end <- end + batch_size
     }
     # Print out current MSE for train data
-    if (iter %% 10 == 0 && verbose) {
+    if ((iter %% 10 == 0) && (verbose)) {
       train_outs <- apply(
         X = train_x,
         MARGIN = 2,
